@@ -15,6 +15,12 @@ public class LockerRobotManger {
         if (bag.size == 'S') {
             return locker.store(bag);
         }
+        if (bag.size == 'M') {
+            return primaryLockerRobot.store(bag);
+        }
+        if (bag.size == 'L') {
+            return superLockerRobot.store(bag);
+        }
         return null;
     }
 }
