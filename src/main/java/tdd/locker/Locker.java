@@ -21,4 +21,8 @@ public class Locker {
         capacity--;
         return ticket;
     };
+
+    public Boolean hasCapacity() {
+        return capacity > 0;
+    }
 }
