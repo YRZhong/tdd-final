@@ -23,4 +23,17 @@ public class LockerRobotManger {
         }
         return null;
     }
+
+    public Bag fetch(Ticket ticket) {
+        if (ticket.size == 'S') {
+            return locker.fetch(ticket);
+        }
+        if (ticket.size == 'M') {
+            return primaryLockerRobot.fetch(ticket);
+        }
+        if (ticket.size == 'L') {
+            return superLockerRobot.fetch(ticket);
+        }
+        return null;
+    }
 }
