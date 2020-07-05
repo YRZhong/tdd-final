@@ -14,6 +14,9 @@ public class Locker {
     };
 
     public Ticket store(Bag bag) {
+        if (capacity <= 0) {
+            throw new LockerIsFullException();
+        }
         Ticket ticket = new Ticket(size);
         capacity--;
         return ticket;
