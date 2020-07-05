@@ -26,4 +26,14 @@ public class PrimaryLockerRobotTest {
         primaryLockerRobot.store(bag1);
         assertThrows(LockerIsFullException.class, ()->primaryLockerRobot.store(bag2));
     }
+
+    @Test
+    public void should_get_MBag_when_fetch_given_correct_ticket() {
+        Bag storedBag = new Bag('M');
+        Locker locker = new Locker('M', 2);
+        Ticket ticket = locker.store(storedBag);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Arrays.asList(locker));
+        Bag fetchedBag = primaryLockerRobot.fetch(ticket);
+        assertSame(storedBag, fetchedBag);
+    }
 }

@@ -31,4 +31,11 @@ public class LockerTest {
         Bag fetchedBag = locker.fetch(ticket);
         assertSame(storedBag, fetchedBag);
     }
+
+    @Test
+    public void should_throw_exception_when_fetch_given_invalid_ticket() {
+        Locker locker = new Locker('S', 2);
+        Ticket ticket = new Ticket('S');
+        assertThrows(InvalidTicketException.class, ()->locker.fetch(ticket));
+    }
 }

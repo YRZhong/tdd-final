@@ -28,8 +28,15 @@ public class Locker {
         if (bag == null) {
             throw new InvalidTicketException();
         }
+        if (bag.size != ticket.size) {
+            throw new TicketInvalidException();
+        }
         storedBags.remove(ticket);
         capacity++;
         return bag;
+    };
+
+    public Boolean isContainsGivenBag(Ticket ticket) {
+        return storedBags.containsKey(ticket);
     };
 }
