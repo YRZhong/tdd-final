@@ -18,11 +18,18 @@ public class Locker {
             throw new LockerIsFullException();
         }
         Ticket ticket = new Ticket(size);
+        storedBags.put(ticket, bag);
         capacity--;
         return ticket;
     };
 
-    public Boolean hasCapacity() {
-        return capacity > 0;
-    }
+    public Bag fetch(Ticket ticket) {
+        Bag bag = storedBags.get(ticket);
+        if (bag == null) {
+            throw new InvalidTicketException();
+        }
+        storedBags.remove(ticket);
+        capacity++;
+        return bag;
+    };
 }
