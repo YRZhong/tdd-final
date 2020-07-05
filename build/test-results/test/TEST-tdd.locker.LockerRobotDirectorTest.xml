@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tdd.locker.LockerRobotDirectorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-05T14:06:27" hostname="CNzhongyuran" time="0.036">
+  <properties/>
+  <testcase name="printTest()" classname="tdd.locker.LockerRobotDirectorTest" time="0.036"/>
+  <system-out><![CDATA[M 9 12
+ R 3 5
+  L 3 5
+ R 6 7
+  L 6 7
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
