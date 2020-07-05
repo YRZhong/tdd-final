@@ -37,4 +37,12 @@ class SuperLockerRobotTest {
         assertSame(storedBag, fetchedBag);
     }
 
+    @Test
+    public void should_throw_exception_when_fetch_given_invalid_ticket() {
+        Locker locker = new Locker('L', 2);
+        Ticket ticket = new Ticket('L');
+        SuperLockerRobot superLockerRobot = new SuperLockerRobot(Arrays.asList(locker));
+        assertThrows(InvalidTicketException.class, ()->superLockerRobot.fetch(ticket));
+    }
+
 }

@@ -36,4 +36,12 @@ public class PrimaryLockerRobotTest {
         Bag fetchedBag = primaryLockerRobot.fetch(ticket);
         assertSame(storedBag, fetchedBag);
     }
+
+    @Test
+    public void should_throw_exception_when_fetch_given_invalid_ticket() {
+        Locker locker = new Locker('L', 2);
+        Ticket ticket = new Ticket('L');
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Arrays.asList(locker));
+        assertThrows(InvalidTicketException.class, ()->primaryLockerRobot.fetch(ticket));
+    }
 }
