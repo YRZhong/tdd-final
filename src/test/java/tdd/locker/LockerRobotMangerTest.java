@@ -76,5 +76,29 @@ public class LockerRobotMangerTest {
         assertSame(bag, lockerRobotManger.fetch(ticket));
     }
 
+    @Test
+    public void should_get_M_bag_when_fetch_given_valid_ticket() {
+        Locker SLocker = new Locker('S', 5);
+        Locker MLocker = new Locker('M', 5);
+        Locker LLocker = new Locker('L', 5);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Arrays.asList(MLocker));
+        SuperLockerRobot superLockerRobot = new SuperLockerRobot(Arrays.asList(LLocker));
+        LockerRobotManger lockerRobotManger = new LockerRobotManger(SLocker, primaryLockerRobot, superLockerRobot);
+        Bag bag = new Bag('M');
+        Ticket ticket = lockerRobotManger.store(bag);
+        assertSame(bag, lockerRobotManger.fetch(ticket));
+    }
 
+    @Test
+    public void should_get_L_bag_when_fetch_given_valid_ticket() {
+        Locker SLocker = new Locker('S', 5);
+        Locker MLocker = new Locker('M', 5);
+        Locker LLocker = new Locker('L', 5);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(Arrays.asList(MLocker));
+        SuperLockerRobot superLockerRobot = new SuperLockerRobot(Arrays.asList(LLocker));
+        LockerRobotManger lockerRobotManger = new LockerRobotManger(SLocker, primaryLockerRobot, superLockerRobot);
+        Bag bag = new Bag('L');
+        Ticket ticket = lockerRobotManger.store(bag);
+        assertSame(bag, lockerRobotManger.fetch(ticket));
+    }
 }
